@@ -969,6 +969,7 @@
             <button class="tab-btn active" onclick="switchTab(this,'pistis','name')">Name</button>
             <button class="tab-btn" onclick="switchTab(this,'pistis','story')">Pitch</button>
             <button class="tab-btn" onclick="switchTab(this,'pistis','features')">Features</button>
+            <button class="tab-btn" onclick="switchTab(this,'pistis','diff')">What's Different</button>
             <button class="tab-btn" onclick="switchTab(this,'pistis','layers')">Agentic Intelligence</button>
           </div>
           <div class="tab-content active" data-card="pistis" data-tab="name">
@@ -997,6 +998,23 @@
               <div class="feature-row"><span class="feature-name">JML automation</span><span class="feature-desc">HR event to fully provisioned or fully deprovisioned in under 60 seconds across all connected apps. No ticket. No wait.</span></div>
               <div class="feature-row"><span class="feature-name">Scenario simulator</span><span class="feature-desc">"What happens if I give this user this permission?" Shows SoD conflicts before the change is made, not after the audit finding.</span></div>
             </div>
+          </div>
+          <div class="tab-content" data-card="pistis" data-tab="diff">
+            <p class="diff-h">The buyer's objection</p>
+            <div class="objection-block">"We already have SailPoint. We have Okta. Our SOX team runs quarterly access certifications in ServiceNow. We have Splunk ingesting auth logs. What exactly does Pistis do that we don't already have covered?"</div>
+            <p class="diff-h">The architectural answer</p>
+            <ul class="bullets gap">
+              <li>SailPoint, Okta, ServiceNow, and Splunk each answer one specific question and terminate at the answer. SailPoint terminates at the certification decision. Okta terminates at the session grant. ServiceNow terminates at the closed ticket. Splunk terminates at the alert.</li>
+              <li>None of these tools was designed to reason across all four outputs simultaneously, detect that a combination of access grants constitutes a live SOX violation, and initiate a remediation action - without a human manually connecting the dots between four separate dashboards.</li>
+              <li class="punch">The gap between what your existing stack outputs and what a regulator actually needs is filled today by people working in spreadsheets. That is the problem Pistis is built to close.</li>
+            </ul>
+            <div class="arch-diffs">
+              <div class="arch-diff"><span class="arch-diff-label">Continuous posture, not periodic snapshots</span><ul class="bullets" style="margin:4px 0 0"><li>Every tool in your existing stack operates on a trigger: a campaign opens, an alert fires, a ticket is raised. Between triggers, nothing changes in the governance record regardless of what changes in the actual access estate. Pistis re-scores every active entitlement after every sync - which runs every four hours or on-demand. The posture score for every identity is a live number, not a quarterly certificate.</li></ul></div>
+              <div class="arch-diff"><span class="arch-diff-label">Cross-app conflict graph, not single-tool boundary</span><ul class="bullets" style="margin:4px 0 0"><li>SoD conflicts in your existing estate do not live inside one system. An AP invoice entry permission lives in SAP. An AP payment approval lives in SAP. But the identity holding both may have been provisioned by SailPoint, authenticated via Okta, and reviewed via ServiceNow - and none of those platforms is building a cross-application conflict graph in real time. Pistis maintains a unified entitlement graph across all connected apps and queries it after every sync.</li></ul></div>
+              <div class="arch-diff"><span class="arch-diff-label">Action on the entitlement, not just the alert</span><ul class="bullets" style="margin:4px 0 0"><li>Every tool in the existing stack terminates at output. A human must translate that output into an action in a downstream system. The median time between a Splunk alert and a remediated entitlement in most enterprises is measured in days. Pistis closes the loop: when the anomaly engine crosses a risk threshold, it calls the directory API directly. When the JML engine receives a LEAVER event, it revokes access across all connectors within 60 seconds.</li></ul></div>
+              <div class="arch-diff"><span class="arch-diff-label">Warranted trust, not a compliance record</span><ul class="bullets" style="margin:4px 0 0"><li>Every tool in the existing stack produces evidence that a process was followed - not whether the access decisions made inside those controls were actually correct. Pistis generates a rationale for every access decision: why this entitlement was kept, why it was revoked, what signal drove the score. A reviewer reading a certification item sees: "This entitlement has not been exercised in 127 days. The Finance AP Manager peer group does not typically hold Salesforce Admin access. AI confidence: 94%. Recommendation: revoke."</li></ul></div>
+            </div>
+            <div class="one-liner">Every tool in your IAM stack tells you what access exists. Pistis is the system that scores whether each grant is still warranted, catches conflicts across your entire app estate in real time, and executes revocations the moment the threshold is crossed - while you approve each consequential step.</div>
           </div>
           <div class="tab-content" data-card="pistis" data-tab="layers">
             <span class="s-label">Three intelligence layers</span>
