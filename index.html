@@ -597,7 +597,7 @@
               <span class="repo-badge-live">Live</span>
               <a href="https://ichnos.dev" target="_blank" class="repo-homepage" onclick="event.stopPropagation()">&#8599; ichnos.dev</a>
             </div>
-            <p class="repo-desc">What if every AI decision left a permanent, signed trace? Agentic provenance platform - captures, signs, and stores the decision record for every AI-written change directly in git. EU regulators are already asking for this. US regulators will be too.</p>
+            <p class="repo-desc">What if every AI decision left a signed, verifiable trace? Agentic provenance platform - captures and stores the decision record for every AI-written change directly in git. AI-accountability expectations are tightening. When your auditor asks, you need an answer.</p>
             <span class="repo-lang"><span class="lang-dot" style="background:var(--ember)"></span>AI Provenance (Regulatory)</span>
           </div>
           <svg class="repo-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
@@ -611,14 +611,14 @@
             <button class="tab-btn" onclick="switchTab(this,'ichnos','layers')">Agentic Intelligence</button>
           </div>
           <div class="tab-content active" data-card="ichnos" data-tab="name">
-            <div class="name-block">ichnos (ίχνος) is ancient Greek for a track, a footprint - the physical mark left by an agent that passed through a space.<br><br>Your AI assistant has already written code, reviewed PRs, and proposed architecture. None of it left a mark.<br><br>Ichnos captures the decision record for every AI-written change at the moment it is made - signed, timestamped, stored permanently in git alongside the code it produced.<br><br>EU regulators are already asking for this. When your auditor asks what the AI decided and why, ichnos is your answer.</div>
+            <div class="name-block">ichnos (ίχνος) is ancient Greek for a track, a footprint - the physical mark left by an agent that passed through a space.<br><br>Your AI assistant has already written code, reviewed PRs, and proposed architecture. None of it left a mark.<br><br>Ichnos captures the decision record for every AI-written change at the moment it is made - signed, timestamped, stored in git alongside the code it produced with a verifiable integrity hash.<br><br>AI-accountability expectations are tightening. When your auditor asks what the AI decided and why, ichnos is your answer.</div>
           </div>
           <div class="tab-content" data-card="ichnos" data-tab="story">
             <span class="s-label">What it is</span>
             <ul class="bullets">
-              <li>Compliance infrastructure layer for AI-generated code. Captures, automatically, immutably, stored in git, the provenance, decision context, assumptions, and human disposition behind every AI-written change.</li>
+              <li>Compliance infrastructure layer for AI-generated code. Captures, automatically, with a verifiable integrity hash, stored in git, the provenance, decision context, assumptions, and human disposition behind every AI-written change.</li>
               <li>25-42% of production code is already AI-authored, and none of it shows its work: no record of what the model chose, what it assumed, what it skipped, or which human reviewed it.</li>
-              <li>The EU AI Act begins enforcement on August 2, 2026, with fines reaching 7% of global revenue for teams that cannot produce documented AI provenance.</li>
+              <li>AI-accountability expectations tighten through 2026, with regulators and customers increasingly asking what the AI decided and why.</li>
               <li class="punch">Almost no engineering team can produce that record today. Ichnos eliminates all of that.</li>
             </ul>
             <span class="s-label">The core problem</span>
@@ -632,8 +632,8 @@
             <div class="features-list">
               <div class="feature-row"><span class="feature-name">At-generation decision capture</span><span class="feature-desc">Fires before the engineer sees the diff. The decision record is written when generation context is still present. There is no later point at which this information is recoverable.</span></div>
               <div class="feature-row"><span class="feature-name">Permanent records in your own repository</span><span class="feature-desc">Decision records committed directly into the repository alongside the code. Versioned with the code. Survives Ichnos as a company.</span></div>
-              <div class="feature-row"><span class="feature-name">Human oversight evidence per change</span><span class="feature-desc">accepted / accepted_with_modifications / rejected; the EU AI Act requires evidence of human oversight per change. This is that record, timestamped and cryptographically linked.</span></div>
-              <div class="feature-row"><span class="feature-name">Regulatory export</span><span class="feature-desc">git why log --export eu-ai-act produces a PDF structured for EU AI Act transparency requirements: AI system identification, full decision index, human oversight summary, integrity manifest.</span></div>
+              <div class="feature-row"><span class="feature-name">Human oversight evidence per change</span><span class="feature-desc">accepted / accepted_with_modifications / rejected; AI accountability frameworks require evidence of human oversight per change. This is that record, timestamped and linked to its decision payload.</span></div>
+              <div class="feature-row"><span class="feature-name">Provenance export</span><span class="feature-desc">git why log --export provenance-report produces a structured provenance report: AI system identification, full decision index, human oversight summary, integrity manifest.</span></div>
               <div class="feature-row"><span class="feature-name">Zero undocumented AI changes in production</span><span class="feature-desc">Blocks deploys when undocumented AI changes are detected. Dashboard shows gaps by repo and engineer. Designed to drive to 100%, not to report and stop.</span></div>
             </div>
           </div>
@@ -648,18 +648,18 @@
             </ul>
             <div class="arch-diffs">
               <div class="arch-diff"><span class="arch-diff-label">Generation time, not review time</span><ul class="bullets" style="margin:4px 0 0"><li>Every existing tool operates after the code has been written. By that point, the generation context is gone. Ichnos fires at the PostToolUse boundary, before the engineer sees the diff.</li></ul></div>
-              <div class="arch-diff"><span class="arch-diff-label">Human layer, not code layer</span><ul class="bullets" style="margin:4px 0 0"><li>The disposition layer records what the human decided to do with the AI's output. This is what the EU AI Act requires. A GitHub PR approval is not a provenance record under EU AI Act transparency requirements.</li></ul></div>
+              <div class="arch-diff"><span class="arch-diff-label">Human layer, not code layer</span><ul class="bullets" style="margin:4px 0 0"><li>The disposition layer records what the human decided to do with the AI's output. This is what AI accountability frameworks require. A GitHub PR approval is not a provenance record.</li></ul></div>
               <div class="arch-diff"><span class="arch-diff-label">Permanent in your repository, not ours</span><ul class="bullets" style="margin:4px 0 0"><li>Decision records are in your repository, committed alongside the code. The record for code written in June 2026 will still be there in 2036, regardless of whether Ichnos exists as a company.</li></ul></div>
-              <div class="arch-diff"><span class="arch-diff-label">The regulator's format, not a proprietary one</span><ul class="bullets" style="margin:4px 0 0"><li>Every other tool produces output in its own format. Ichnos ships EU AI Act transparency requirements as a first-class export target. The regulator reads it directly, no translation layer needed.</li></ul></div>
+              <div class="arch-diff"><span class="arch-diff-label">Structured for accountability, not proprietary</span><ul class="bullets" style="margin:4px 0 0"><li>Every other tool produces output in its own format. Ichnos ships a structured provenance report as a first-class export. No manual assembly, no translation layer needed.</li></ul></div>
             </div>
             <div class="one-liner">Every tool you have watches what the code does: Copilot writes it, Snyk scans it, reviewers read it, Datadog monitors it. Ichnos is the layer that records what the AI decided when it wrote it, what the human chose to do with that decision, and hands you a signed PDF when the auditor asks, while your engineers keep working exactly as they do today.</div>
           </div>
           <div class="tab-content" data-card="ichnos" data-tab="layers">
             <span class="s-label">Three capture layers</span>
             <div class="layers-grid">
-              <div class="layer-card"><p class="layer-name">Capture at the moment of creation</p><p class="layer-desc">Fires immediately after every AI code edit, before the engineer sees the diff. Model identifier, timestamp, file path, decision payload, captured at the moment of generation.</p></div>
+              <div class="layer-card"><p class="layer-name">Capture at the moment of creation</p><p class="layer-desc">Fires after every AI code edit in Claude Code, before the engineer sees the diff. Model identifier, timestamp, file path, decision payload, captured at the moment of generation.</p></div>
               <div class="layer-card"><p class="layer-name">Engineer decision record</p><p class="layer-desc">Records what the engineer did with the AI output: accepted, accepted with modifications, or rejected. The evidence that a person reviewed the change and made a deliberate decision.</p></div>
-              <div class="layer-card"><p class="layer-name">Regulator-ready reporting</p><p class="layer-desc">EU AI Act transparency requirements, California AB 2013. One command: <code style="font-family:var(--mono);font-size:10px">git why log --export eu-ai-act</code>. Signed PDF, delivered. No manual assembly.</p></div>
+              <div class="layer-card"><p class="layer-name">Provenance reporting</p><p class="layer-desc">AI decisions, human oversight evidence, integrity manifest. One command: <code style="font-family:var(--mono);font-size:10px">git why log --export provenance-report</code>. Delivered. No manual assembly.</p></div>
             </div>
           </div>
         </div>
