@@ -755,7 +755,7 @@
               <span class="repo-badge-preview">Preview</span>
               <a href="https://poiesis-blond.vercel.app/" target="_blank" class="repo-homepage" onclick="event.stopPropagation()">&#8599; poiesis-blond.vercel.app</a>
             </div>
-            <p class="repo-desc">What if software delivered itself, from issue to production? Agentic SDLC platform - six coordinated agents take a GitHub issue from intent to production, with human in the loop where needed.</p>
+            <p class="repo-desc">What if the agentic SDLC set itself up, from issue to production? Agentic SDLC platform - six coordinated agents take a GitHub issue from intent to production, with human in the loop where needed.</p>
             <span class="repo-lang"><span class="lang-dot" style="background:var(--ember)"></span>Agentic SDLC</span>
           </div>
           <svg class="repo-chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
@@ -790,10 +790,10 @@
           <div class="tab-content" data-card="poiesis" data-tab="features">
             <div class="features-list">
               <div class="feature-row"><span class="feature-name">Automated deployment guardrails</span><span class="feature-desc">8 automated checks evaluated before any environment is touched: no CVEs, all artifacts signed, ticket linked, PR approved, no freeze window, lint clean, tests passing, license clean.</span></div>
-              <div class="feature-row"><span class="feature-name">Zero-downtime deployment with self-recovery</span><span class="feature-desc">Production flips only when all health checks pass. WATCHTOWER fires within seconds of a metric breach. MEDIC initiates rollback before the incident reaches customers. On-call engineer optional.</span></div>
+              <div class="feature-row"><span class="feature-name">Zero-downtime deployment with self-recovery</span><span class="feature-desc">Production flips only when all health checks pass. WATCHTOWER fires within seconds of a metric breach. MEDIC initiates rollback autonomously. Recovers before the incident reaches customers.</span></div>
               <div class="feature-row"><span class="feature-name">Security scanning before any reviewer sees the code</span><span class="feature-desc">CodeQL, Checkmarx, Dependabot, and SonarQube fire simultaneously on every push. Findings stream into the PR before review starts, not sequential.</span></div>
               <div class="feature-row"><span class="feature-name">Precise incident diagnosis, no war room</span><span class="feature-desc">MEDIC produces a precise, file-level root cause. No guessing, no grep, no war room. Names the file, the function, and the missing optimization.</span></div>
-              <div class="feature-row"><span class="feature-name">Auto-generated release receipts</span><span class="feature-desc">GitHub Release includes rollback notice, component statuses, DORA metrics, and OPA results. Nobody writes a postmortem; it is a byproduct of the pipeline running.</span></div>
+              <div class="feature-row"><span class="feature-name">Auto-generated release receipts</span><span class="feature-desc">GitHub Release includes rollback notice, component statuses, and OPA results, committed to the repo as a signed receipt. Nobody writes a postmortem; it is a byproduct of the pipeline running.</span></div>
             </div>
           </div>
           <div class="tab-content" data-card="poiesis" data-tab="diff">
@@ -808,7 +808,7 @@
             <div class="arch-diffs">
               <div class="arch-diff"><span class="arch-diff-label">Action chain, not signal chain</span><ul class="bullets" style="margin:4px 0 0"><li>Every existing tool produces a signal that terminates at a human who must decide what to do. Poiesis's agents own the consequent action, as an executed operation, not a recommendation.</li></ul></div>
               <div class="arch-diff"><span class="arch-diff-label">Every agent reads the full picture</span><ul class="bullets" style="margin:4px 0 0"><li>When MEDIC diagnoses a production incident, it reads the deployment manifest, the Splunk metric snapshot, and the PR diff simultaneously. No single tool in your stack has access to all three.</li></ul></div>
-              <div class="arch-diff"><span class="arch-diff-label">Self-generating audit trail</span><ul class="bullets" style="margin:4px 0 0"><li>After every run, Poiesis emits a complete GitHub Release: rollback notice, component statuses, DORA metrics, OPA results. Nobody writes this. The pipeline writes it.</li></ul></div>
+              <div class="arch-diff"><span class="arch-diff-label">Self-generating audit trail</span><ul class="bullets" style="margin:4px 0 0"><li>After every run, Poiesis emits a complete GitHub Release: rollback notice, component statuses, OPA results, committed as a signed receipt. Nobody writes this. The pipeline writes it.</li></ul></div>
             </div>
             <div class="one-liner">Every tool you have detects something and hands the result to a person. Poiesis is the system that reads those results, takes the next action, and hands you a receipt, while you approve anything that isn't routine.</div>
           </div>
@@ -820,7 +820,7 @@
               <div class="layer-card"><p class="layer-name">SENTINEL</p><p class="layer-desc">Runs CodeQL, Checkmarx SAST, Dependabot, SonarQube in parallel before merge. Generates signed SBOM for every artifact. Blocks deployment if unsigned.</p></div>
               <div class="layer-card"><p class="layer-name">PILOT</p><p class="layer-desc">Agentic CD pipeline: DEV to SIT to PROD, blue/green swap, OPA policy gate. Evaluates 8 automated checks before touching any environment.</p></div>
               <div class="layer-card"><p class="layer-name">WATCHTOWER</p><p class="layer-desc">Watches production metrics via Splunk. Detects CPU, latency, and error rate anomalies within seconds of swap. Fires incident playbook before error rate reaches customers.</p></div>
-              <div class="layer-card"><p class="layer-name">MEDIC</p><p class="layer-desc">Reads deployment manifest, metric spike, code diff. Identifies root cause. Issues rollback command. Rollback initiates before the on-call engineer's phone rings. Auto-generates the full release note and DORA metrics.</p></div>
+              <div class="layer-card"><p class="layer-name">MEDIC</p><p class="layer-desc">Reads deployment manifest, metric spike, code diff. Identifies root cause. Issues rollback command. Rollback initiates within seconds of the metric breach, before the incident reaches customers. Auto-generates the full release note and signed receipt.</p></div>
             </div>
           </div>
         </div>
